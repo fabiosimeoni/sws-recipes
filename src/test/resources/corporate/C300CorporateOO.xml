@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<databaseConfiguration mailTo="fabio@simeoni.fao.org">
+    <dimensions>
+        <measurementUnitDimension tableName="REFERENCE_DATA.DIM_CORPORATE_OOSCORE" selectionTableName="OPERATIONAL_DATA.SELECTION_DIM_CORPORATE_OOSCORE" hierarchyTableName="REFERENCE_DATA.DIM_CORPORATE_OOSCORE_HIEARCHY" parent="PARENT" child="CHILD" sdmxCode="corporate_ooscore" code="corporate_ooscore" displayNameKey="corporate_ooscore"/>
+    </dimensions>
+    <flags/>
+    <domain code="corporate" displayNameKey="corporate_domain">
+        <dataSet code="ooindicators" defaultEmptyRowsVisible="false" sdmxCode="ooindicators">
+            <dimension refCode="geographicAreaM49" sdmxCode="geographicAreaM49">
+                <roots>
+                    <root code="700"/>
+                </roots>
+            </dimension>
+            <measurementUnitDimension refCode="corporate_ooscore" sdmxCode="corporate_ooscore">
+                <roots/>
+            </measurementUnitDimension>
+            <timeDimension refCode="timePointYears" sdmxCode="timePointYears">
+                <roots>
+                    <root code="58"/>
+                    <root code="59"/>
+                </roots>
+            </timeDimension>
+            <observation valueTableName="OOINDICATORS.OBSERVATION" coordinatesTableName="OOINDICATORS.OBSERVATION_COORDINATE" sessionObservationTableName="OOINDICATORS.SESSION_OBSERVATION" metadataTableName="OOINDICATORS.METADATA" metadataElementTableName="OOINDICATORS.METADATA_ELEMENT" sessionMetadataTableName="OOINDICATORS.SESSION_METADATA" sessionMetadataElementTableName="OOINDICATORS.SESSION_METADATA_ELEMENT" validationTableName="OOINDICATORS.VALIDATION" sessionValidationTableName="OOINDICATORS.SESSION_VALIDATION" tagObservationTableName="OOINDICATORS.TAG_OBSERVATION">
+                <dimension refCode="geographicAreaM49" joinColumn="GEOGRAPHIC_AREA_M49"/>
+                <dimension refCode="corporate_ooscore" joinColumn="CORPORATE_OOSCORE"/>
+                <dimension refCode="timePointYears" joinColumn="TIME_POINT_YEARS"/>
+                <flag refCode="corporate_oostatus" sdmxCode="corporate_oostatus" joinColumn="CORPORATE_OOSTATUS"/>
+            </observation>
+            <defaultPivoting>
+                <dimension refCode="geographicAreaM49" ascending="true"/>
+                <dimension refCode="corporate_ooscore" ascending="true"/>
+                <dimension refCode="timePointYears" ascending="true"/>
+            </defaultPivoting>
+        </dataSet>
+    </domain>
+</databaseConfiguration>
