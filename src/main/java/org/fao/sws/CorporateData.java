@@ -1,5 +1,6 @@
 package org.fao.sws;
 
+import static java.lang.System.*;
 import static org.fao.sws.model.configuration.Dsl.*;
 
 import javax.inject.Inject;
@@ -11,10 +12,10 @@ import org.fao.sws.automation.dsl.FileSystem;
 import org.fao.sws.model.Dataset;
 import org.fao.sws.model.Dimension;
 import org.fao.sws.model.Flag;
+import org.fao.sws.model.configuration.Binder;
 import org.fao.sws.model.configuration.Configuration;
 import org.junit.Test;
 
-//use junit as the script execution framework
 public class CorporateData extends Recipe {
 
 	@Inject @Deployment(config="src/test/resources")
@@ -23,22 +24,27 @@ public class CorporateData extends Recipe {
 	@Inject
 	Database db;
 	
+	@Inject
+	Binder binder;
+	
 	
 	//the domain
 	Configuration corporate() {
 		
 		Dimension m49 = dimension("geographicAreaM49");
 		Dimension years = timeDimension("timePointYears");
-		Dimension score = measureDimension("corporate_ooscore");
+		Dimension score = measureDimension("corporate_ooscore").labelKey("OOScore").label("OO Score");
+		
 		Flag status = flag("corporate_oostatus");
 		
-		Dataset ooindicators = dataset("ooindicators")
-								.with(
+		Dataset ooindicators = dataset("coporate_oo")
+							   .label("Corporate - Organizational Outcomes")
+							   .with(
 									m49.ref().roots("700")
 								   ,score.ref()
 								   ,years.ref().roots("58","59")
 								)
-								.with(status.ref());
+							   .with(status.ref());
 		
 		
 		Configuration corporate = sws()
@@ -46,17 +52,15 @@ public class CorporateData extends Recipe {
 									.with(score)
 									.with(
 										domain("corporate")
-										.labelKey("corporate_domain")
-										.with(ooindicators)
-									);
-		
-		
+										 	.label("Corporate Data")
+										 	.with(ooindicators)
+								  );
+			
 		return corporate;
 	
 	
 	}
 	
-	//stores config
 	@Test
 	public void save_domain_config() {
 		
@@ -64,10 +68,19 @@ public class CorporateData extends Recipe {
 		
 	}
 	
-	//creates schema
+	
 	@Test
-	public void store_domain() {
+	public void show_config() {
+
+		binder.bind(corporate(),err);
+	
+	}
+	
+	@Test
+	public void create_schema() {
 		
+		//db.clean(true);
+		//db.dryrun(false);
 		db.store(corporate());
 	}
 	
