@@ -1,6 +1,5 @@
 package org.fao.sws;
 
-import static java.lang.System.*;
 import static org.fao.sws.model.configuration.Dsl.*;
 
 import javax.inject.Inject;
@@ -18,7 +17,8 @@ import org.junit.Test;
 
 public class CorporateData extends Recipe {
 
-	@Inject @Deployment(config="src/test/resources")
+	@Inject 
+	@Deployment(config="src/test/resources")
 	FileSystem fs;
 	
 	@Inject
@@ -26,7 +26,6 @@ public class CorporateData extends Recipe {
 	
 	@Inject
 	Binder binder;
-	
 	
 	//the domain
 	Configuration corporate() {
@@ -52,12 +51,11 @@ public class CorporateData extends Recipe {
 									.with(score)
 									.with(
 										domain("corporate")
-										 	.label("Corporate Data")
+											.label("Corporate Data")
 										 	.with(ooindicators)
 								  );
 			
 		return corporate;
-	
 	
 	}
 	
@@ -72,15 +70,15 @@ public class CorporateData extends Recipe {
 	@Test
 	public void show_config() {
 
-		binder.bind(corporate(),err);
-	
+		fs.dryrun(true);
+		save_domain_config();
 	}
 	
 	@Test
 	public void create_schema() {
 		
 		//db.clean(true);
-		//db.dryrun(false);
+		db.dryrun(true);
 		db.defineFragment(corporate());
 	}
 	

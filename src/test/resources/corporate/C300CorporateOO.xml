@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <databaseConfiguration mailTo="fabio@simeoni.fao.org">
     <dimensions>
-        <measurementUnitDimension tableName="REFERENCE_DATA.DIM_CORPORATE_OOSCORE" selectionTableName="OPERATIONAL_DATA.SELECTION_DIM_CORPORATE_OOSCORE" hierarchyTableName="REFERENCE_DATA.DIM_CORPORATE_OOSCORE_HIEARCHY" parent="PARENT" child="CHILD" sdmxCode="corporate_ooscore" code="corporate_ooscore" displayNameKey="OOScore"/>
+        <measurementUnitDimension tableName="REFERENCE_DATA.DIM_CORPORATE_OOSCORE" selectionTableName="OPERATIONAL_DATA.SELECTION_DIM_CORPORATE_OOSCORE" hierarchyTableName="REFERENCE_DATA.DIM_CORPORATE_OOSCORE_HIERARCHY" parent="PARENT" child="CHILD" sdmxCode="corporate_ooscore" code="corporate_ooscore" displayNameKey="OOScore"/>
     </dimensions>
     <flags/>
     <domain code="corporate" displayNameKey="corporate">
