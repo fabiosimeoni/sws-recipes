@@ -11,7 +11,6 @@ import org.fao.sws.automation.Recipe;
 import org.fao.sws.model.Dataset;
 import org.fao.sws.model.Dimension;
 import org.fao.sws.model.Flag;
-import org.fao.sws.model.configuration.Binder;
 import org.fao.sws.model.configuration.Configuration;
 import org.junit.Test;
 
@@ -23,9 +22,6 @@ public class CorporateData extends Recipe {
 	
 	@Inject
 	Database db;
-	
-	@Inject
-	Binder binder;
 	
 	//the domain
 	Configuration corporate() {
@@ -65,7 +61,14 @@ public class CorporateData extends Recipe {
 		fs.store(corporate(),"corporate/C300CorporateOO");
 		
 	}
-	
+
+	@Test
+	public void create_schema() {
+		
+		//db.clean(true);
+		//db.dryrun(true);
+		db.createSchemaFor(corporate());
+	}
 	
 	@Test
 	public void show_config() {
@@ -73,14 +76,5 @@ public class CorporateData extends Recipe {
 		fs.dryrun(true);
 		save_domain_config();
 	}
-	
-	@Test
-	public void create_schema() {
-		
-		//db.clean(true);
-		db.dryrun(true);
-		db.defineFragment(corporate());
-	}
-	
 	
 }
