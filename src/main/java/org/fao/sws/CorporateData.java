@@ -5,10 +5,10 @@ import static org.fao.sws.model.configuration.Dsl.*;
 
 import javax.inject.Inject;
 
+import org.fao.sws.automation.Database;
+import org.fao.sws.automation.Deployment;
+import org.fao.sws.automation.FileSystem;
 import org.fao.sws.automation.Recipe;
-import org.fao.sws.automation.dsl.Database;
-import org.fao.sws.automation.dsl.Deployment;
-import org.fao.sws.automation.dsl.FileSystem;
 import org.fao.sws.model.Dataset;
 import org.fao.sws.model.Dimension;
 import org.fao.sws.model.Flag;
@@ -81,7 +81,7 @@ public class CorporateData extends Recipe {
 		
 		//db.clean(true);
 		//db.dryrun(false);
-		db.store(corporate());
+		db.defineFragment(corporate());
 	}
 	
 	
