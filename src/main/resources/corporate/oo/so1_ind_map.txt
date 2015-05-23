@@ -1,0 +1,17 @@
+source,target
+Ind1,so1_001_1_A1
+Ind2,so1_001_1_A2
+Ind3,so1_001_1_A3
+Ind4,so1_001_1_A4
+Ind5,so1_001_2_B1
+Ind6,so1_001_2_B2
+Ind7,so1_001_2_B3
+Ind8,so1_001_2_B4
+Ind9,so1_002_1_C1
+Ind10,so1_002_1_C2
+Ind11,so1_002_1_C3
+Ind12,so1_002_1_C4
+Ind13,so1_003_1_D1
+Ind14,so1_003_1_D2
+Ind15,so1_003_1_D3
+Ind16,so1_003_1_D4

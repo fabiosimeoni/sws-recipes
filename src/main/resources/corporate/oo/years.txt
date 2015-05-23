@@ -1,0 +1,6 @@
+code,selection_only,description_en,start_date,end_date,sort,type,parent
+all,true,all
+2014,false,baseline,2014-01-01,2014-12-31,,B,all
+2015,false,2015,2015-01-01,2015-12-31,,,all
+2017,false,2017,2017-01-01,2017-12-31,,,all
+2019,false,2019,2019-01-01,2019-12-31,,,all

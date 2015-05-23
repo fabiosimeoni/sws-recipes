@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <databaseConfiguration mailTo="fabio@simeoni.fao.org">
     <dimensions>
-        <measurementUnitDimension tableName="REFERENCE_DATA.DIM_CORPORATE_OOSCORE" selectionTableName="OPERATIONAL_DATA.SELECTION_DIM_CORPORATE_OOSCORE" hierarchyTableName="REFERENCE_DATA.DIM_CORPORATE_OOSCORE_HIERARCHY" parent="PARENT" child="CHILD" sdmxCode="corporate_ooscore" code="corporate_ooscore" displayNameKey="OOScore"/>
+        <timeDimension tableName="REFERENCE_DATA.DIM_OO_YEARS" selectionTableName="OPERATIONAL_DATA.SELECTION_DIM_OO_YEARS" hierarchyTableName="REFERENCE_DATA.DIM_OO_YEARS_HIERARCHY" parent="PARENT" child="CHILD" sdmxCode="oo_years" code="oo_years" displayNameKey="oo_years"/>
+        <measurementUnitDimension tableName="REFERENCE_DATA.DIM_OO_INDICATOR" selectionTableName="OPERATIONAL_DATA.SELECTION_DIM_OO_INDICATOR" hierarchyTableName="REFERENCE_DATA.DIM_OO_INDICATOR_HIERARCHY" parent="PARENT" child="CHILD" sdmxCode="oo_indicator" code="oo_indicator" displayNameKey="oo_indicator"/>
     </dimensions>
     <flags/>
     <domain code="corporate" displayNameKey="corporate">
-        <dataSet code="coporate_oo" defaultEmptyRowsVisible="false" sdmxCode="coporate_oo">
+        <dataSet code="corporate_oo" defaultEmptyRowsVisible="false" sdmxCode="corporate_oo">
             <dimension refCode="geographicAreaM49" sdmxCode="geographicAreaM49">
                 <roots>
-                    <root code="700"/>
+                    <root code="1"/>
                 </roots>
             </dimension>
-            <measurementUnitDimension refCode="corporate_ooscore" sdmxCode="corporate_ooscore">
+            <measurementUnitDimension refCode="oo_indicator" sdmxCode="oo_indicator">
                 <roots/>
             </measurementUnitDimension>
-            <timeDimension refCode="timePointYears" sdmxCode="timePointYears">
+            <timeDimension refCode="oo_years" sdmxCode="oo_years">
                 <roots>
                     <root code="58"/>
                     <root code="59"/>
                 </roots>
             </timeDimension>
-            <observation valueTableName="COPORATE_OO.OBSERVATION" coordinatesTableName="COPORATE_OO.OBSERVATION_COORDINATE" sessionObservationTableName="COPORATE_OO.SESSION_OBSERVATION" metadataTableName="COPORATE_OO.METADATA" metadataElementTableName="COPORATE_OO.METADATA_ELEMENT" sessionMetadataTableName="COPORATE_OO.SESSION_METADATA" sessionMetadataElementTableName="COPORATE_OO.SESSION_METADATA_ELEMENT" validationTableName="COPORATE_OO.VALIDATION" sessionValidationTableName="COPORATE_OO.SESSION_VALIDATION" tagObservationTableName="COPORATE_OO.TAG_OBSERVATION">
+            <observation valueTableName="CORPORATE_OO.OBSERVATION" coordinatesTableName="CORPORATE_OO.OBSERVATION_COORDINATE" sessionObservationTableName="CORPORATE_OO.SESSION_OBSERVATION" metadataTableName="CORPORATE_OO.METADATA" metadataElementTableName="CORPORATE_OO.METADATA_ELEMENT" sessionMetadataTableName="CORPORATE_OO.SESSION_METADATA" sessionMetadataElementTableName="CORPORATE_OO.SESSION_METADATA_ELEMENT" validationTableName="CORPORATE_OO.VALIDATION" sessionValidationTableName="CORPORATE_OO.SESSION_VALIDATION" tagObservationTableName="CORPORATE_OO.TAG_OBSERVATION">
                 <dimension refCode="geographicAreaM49" joinColumn="GEOGRAPHIC_AREA_M49"/>
-                <dimension refCode="corporate_ooscore" joinColumn="CORPORATE_OOSCORE"/>
-                <dimension refCode="timePointYears" joinColumn="TIME_POINT_YEARS"/>
-                <flag refCode="corporate_oostatus" sdmxCode="corporate_oostatus" joinColumn="CORPORATE_OOSTATUS"/>
+                <dimension refCode="oo_indicator" joinColumn="OO_INDICATOR"/>
+                <dimension refCode="oo_years" joinColumn="OO_YEARS"/>
             </observation>
             <defaultPivoting>
                 <dimension refCode="geographicAreaM49" ascending="true"/>
-                <dimension refCode="corporate_ooscore" ascending="true"/>
-                <dimension refCode="timePointYears" ascending="true"/>
+                <dimension refCode="oo_indicator" ascending="true"/>
+                <dimension refCode="oo_years" ascending="true"/>
             </defaultPivoting>
         </dataSet>
     </domain>
