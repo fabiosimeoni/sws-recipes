@@ -3,6 +3,7 @@ package org.fao.sws.corporate.oo;
 import static org.fao.sws.model.configuration.Dsl.*;
 import lombok.experimental.UtilityClass;
 
+import org.fao.sws.automation.Group;
 import org.fao.sws.model.Dataset;
 import org.fao.sws.model.Dimension;
 import org.fao.sws.model.configuration.Configuration;
@@ -19,11 +20,12 @@ public class OrganizationalOutcomes {
 			.selectionTable("OPERATIONAL_DATA.SELECTION_DIM_GEOGRAPHIC_AREA_M49")
 			.hierarchyTable("REFERENCE_DATA.DIM_GEOGRAPHIC_AREA_M49_HIERARCHY");
 
-	public Dimension year_dim = timeDimension(year_dim_name).labelKey("oo_years").label("Year");
+	public Dimension year_dim = timeDimension(year_dim_name).labelKey("ooYears").label("Year");
 
-	public Dimension indicator_dim = measureDimension(indicator__dim_name).length(15).labelKey("oo_indicator").label("Indicator");
+	public Dimension indicator_dim = measureDimension(indicator__dim_name).length(15).labelKey("ooIndicator").label("Indicator");
 
 	public Dataset dataset = dataset("corporate_oo")
+			   .labelKey("corporateOO")
 			   .label("Corporate - Organizational Outcomes")
 			   .with(
 					country_dim.ref().joinColumn("country").roots("1")
@@ -41,6 +43,7 @@ public class OrganizationalOutcomes {
 		  );
 	
 	
+	public Group corporate_group = new Group("corporate_oo_users").description("Organizational Outcomes User Group");
 	
 
 }

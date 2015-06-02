@@ -1,0 +1,7 @@
+source,target
+TInd7,so2_002_1_B1
+TInd8,so2_002_1_B2
+TInd9,so2_002_1_B3
+TInd10,so2_002_2_C1
+TInd11,so2_002_2_C2
+TInd12,so2_002_2_C3

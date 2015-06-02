@@ -1,0 +1,15 @@
+source,target
+TInd1,so5_001_1_A1
+TInd2,so5_001_1_A2
+TInd3,so5_001_1_A3
+TInd4,so5_001_1_A4
+TInd5,so5_001_1_A5
+TInd6,so5_002_1_B1
+TInd7,so5_002_1_B2
+TInd8,so5_002_1_B3
+TInd9,so5_002_1_B4
+TInd10,so5_003_1_C1
+TInd11,so5_003_1_C2
+TInd12,so5_004_1_D1
+TInd13,so5_004_1_D2
+TInd14,so5_004_1_D3

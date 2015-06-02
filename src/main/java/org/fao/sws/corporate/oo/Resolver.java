@@ -26,13 +26,18 @@ public class Resolver {
 		country_mapping = read("country_mapping.txt").andIndex().over("M49").using("Country");
 	}
 	
+	public boolean canLookup(String name) {
+		
+		return countries.get(country_mapping.getOrDefault(name,name))!=null;
+		
+	}
 	
 	public String lookup(String name) {
 	
 		String code = countries.get(country_mapping.getOrDefault(name,name));
 		
 		if(code==null)
-			throw new IllegalStateException(format("country '%s' is not recogized",name));
+			throw new IllegalStateException(format("country '%s' is not recognized",name));
 		
 		return code;
 	}

@@ -1,0 +1,15 @@
+source,target
+TInd1,so3_001_1_A1
+TInd2,so3_001_1_A2
+TInd3,so3_001_1_A3
+TInd4,so3_001_1_A4
+TInd5,so3_001_1_B1
+TInd6,so3_001_2_B2
+TInd7,so3_001_2_B3
+TInd8,so3_001_2_B4
+TInd9,so3_002_1_C1
+TInd10,so3_002_1_C2
+TInd11,so3_002_1_C3
+TInd12,so3_003_1_D1
+TInd13,so3_003_1_D2
+TInd14,so3_003_1_D3

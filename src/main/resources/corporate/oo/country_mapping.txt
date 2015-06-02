@@ -10,3 +10,11 @@ Dominican Republic (the),Dominican Republic,
 Tajikistan(1992-),Tajikistan
 Montenegro(2006-),Montenegro
 Grenada,Granada
+Côte d'Ivoire,Cote d’ Ivoire
+Georgia(1992-),Georgia
+Kyrgyzstan(1992-),Kyrgyzstan
+TFYR of Macedonia(1992-),Macedonia
+Republic of Moldova(1992-),Moldova
+Saint Lucia,St. Lucia
+Saint Vincent and the Grenadines,St. Vincent
+Syrian Arab Rep,Syria

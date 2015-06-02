@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <databaseConfiguration mailTo="fabio@simeoni.fao.org">
     <dimensions>
-        <timeDimension tableName="REFERENCE_DATA.DIM_OO_YEARS" selectionTableName="OPERATIONAL_DATA.SELECTION_DIM_OO_YEARS" hierarchyTableName="REFERENCE_DATA.DIM_OO_YEARS_HIERARCHY" parent="PARENT" child="CHILD" sdmxCode="oo_years" code="oo_years" displayNameKey="oo_years"/>
-        <measurementUnitDimension tableName="REFERENCE_DATA.DIM_OO_INDICATOR" selectionTableName="OPERATIONAL_DATA.SELECTION_DIM_OO_INDICATOR" hierarchyTableName="REFERENCE_DATA.DIM_OO_INDICATOR_HIERARCHY" parent="PARENT" child="CHILD" sdmxCode="oo_indicator" code="oo_indicator" displayNameKey="oo_indicator"/>
+        <timeDimension tableName="REFERENCE_DATA.DIM_OO_YEARS" selectionTableName="OPERATIONAL_DATA.SELECTION_DIM_OO_YEARS" hierarchyTableName="REFERENCE_DATA.DIM_OO_YEARS_HIERARCHY" parentColumn="PARENT" childColumn="CHILD" sdmxCode="oo_years" code="oo_years" displayNameKey="ooYears"/>
+        <measurementUnitDimension tableName="REFERENCE_DATA.DIM_OO_INDICATOR" selectionTableName="OPERATIONAL_DATA.SELECTION_DIM_OO_INDICATOR" hierarchyTableName="REFERENCE_DATA.DIM_OO_INDICATOR_HIERARCHY" parentColumn="PARENT" childColumn="CHILD" sdmxCode="oo_indicator" code="oo_indicator" displayNameKey="ooIndicator"/>
     </dimensions>
     <flags/>
     <domain code="corporate" displayNameKey="corporate">
-        <dataSet code="corporate_oo" defaultEmptyRowsVisible="false" sdmxCode="corporate_oo">
+        <dataSet code="corporate_oo" displayNameKey="corporateOO" defaultEmptyRowsVisible="false" sdmxCode="corporate_oo">
             <dimension refCode="geographicAreaM49" sdmxCode="geographicAreaM49">
                 <roots>
                     <root code="1"/>
@@ -17,14 +17,14 @@
             </measurementUnitDimension>
             <timeDimension refCode="oo_years" sdmxCode="oo_years">
                 <roots>
-                    <root code="58"/>
-                    <root code="59"/>
+                    <root code="28"/>
+                    <root code="29"/>
                 </roots>
             </timeDimension>
             <observation valueTableName="CORPORATE_OO.OBSERVATION" coordinatesTableName="CORPORATE_OO.OBSERVATION_COORDINATE" sessionObservationTableName="CORPORATE_OO.SESSION_OBSERVATION" metadataTableName="CORPORATE_OO.METADATA" metadataElementTableName="CORPORATE_OO.METADATA_ELEMENT" sessionMetadataTableName="CORPORATE_OO.SESSION_METADATA" sessionMetadataElementTableName="CORPORATE_OO.SESSION_METADATA_ELEMENT" validationTableName="CORPORATE_OO.VALIDATION" sessionValidationTableName="CORPORATE_OO.SESSION_VALIDATION" tagObservationTableName="CORPORATE_OO.TAG_OBSERVATION">
-                <dimension refCode="geographicAreaM49" joinColumn="GEOGRAPHIC_AREA_M49"/>
-                <dimension refCode="oo_indicator" joinColumn="OO_INDICATOR"/>
-                <dimension refCode="oo_years" joinColumn="OO_YEARS"/>
+                <dimension refCode="geographicAreaM49" joinColumn="country"/>
+                <dimension refCode="oo_indicator" joinColumn="indicator"/>
+                <dimension refCode="oo_years" joinColumn="year"/>
             </observation>
             <defaultPivoting>
                 <dimension refCode="geographicAreaM49" ascending="true"/>
